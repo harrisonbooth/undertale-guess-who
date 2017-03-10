@@ -1,5 +1,6 @@
 import React from 'react'
-import PeopleSeeds from '../models/PeopleSeeds'
+import PeopleSeeds from '../models/PeopleSeeds.js'
+import QuestionInput from '../components/QuestionInput.jsx'
 
 class GameContainer extends React.Component {
   constructor() {
@@ -10,8 +11,8 @@ class GameContainer extends React.Component {
   render() {
     return (
       <div id="game-container">
-        <QuestionInput />
-        <Board />
+        <QuestionInput people={this.state.people}/>
+
       </div>
     )
   }
