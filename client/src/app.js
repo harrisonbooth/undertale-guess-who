@@ -1,9 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
+import GameContainer from './containers/GameContainer.jsx'
 
 window.onload = () => {
   render(
-    <h1> App Started </h1>,
+      <GameContainer />,
       document.getElementById('app')
     );
   }
