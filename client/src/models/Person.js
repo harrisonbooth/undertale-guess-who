@@ -5,6 +5,7 @@ class Person {
     this.hair = options.hair
     this.tall = options.tall
     this.town = options.town
+    this.url = options.url
   }
 
   question(key, value) {

@@ -7,15 +7,17 @@ const PeopleSeeds = function() {
       species: "skeleton",
       hair: "none",
       tall: "no",
-      town: "snowdin"
+      town: "snowdin",
+      url: "http://2static.fjcdn.com/pictures/Undertale_bd164e_5722021.jpg"
     }),
 
     new Person({
       name: "Mettaton",
       species: "robot",
-      hair: "none",
+      hair: "black",
       tall: "no",
-      town: "hotlands"
+      town: "hotlands",
+      url: "http://2static.fjcdn.com/pictures/Undertale_70dbd6_5722021.jpg"
     }),
 
     new Person({
@@ -23,7 +25,8 @@ const PeopleSeeds = function() {
       species: "goat",
       hair: "blonde",
       tall: "yes",
-      town: "new home"
+      town: "new home",
+      url: "http://2static.fjcdn.com/pictures/Undertale_36019c_5722021.jpg"
     }),
   ]
   return people;
