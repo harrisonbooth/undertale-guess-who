@@ -20,11 +20,6 @@ class QuestionInput extends React.Component {
     const currentKey = this.state.currentKey
 
     const valueSet = this.props.people.map((person) => {
-      if(person[currentKey] === true){
-        return "Yes"
-      } else if (person[currentKey] === false){
-        return "No"
-      }
       return person[currentKey]
     })
 
@@ -36,7 +31,9 @@ class QuestionInput extends React.Component {
 
     return (
       <div id="question-input">
-        <select id="key-select" onChange={this.handleKeySelect.bind(this)}>{keyNodes}</select>
+        <select id="key-select" onChange={this.handleKeySelect.bind(this)}>
+          {keyNodes}
+        </select>
         <select id="value-select">{valueNodes}</select>
         <button onClick={this.props.onSubmit}>Submit</button>
       </div>

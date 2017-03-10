@@ -6,7 +6,7 @@ const PeopleSeeds = function() {
       name: "Sans",
       species: "skeleton",
       hair: "none",
-      tall: false,
+      tall: "no",
       town: "snowdin"
     }),
 
@@ -14,7 +14,7 @@ const PeopleSeeds = function() {
       name: "Mettaton",
       species: "robot",
       hair: "none",
-      tall: true,
+      tall: "no",
       town: "hotlands"
     }),
 
@@ -22,7 +22,7 @@ const PeopleSeeds = function() {
       name: "Asgore",
       species: "goat",
       hair: "blonde",
-      tall: false,
+      tall: "yes",
       town: "new home"
     }),
   ]
