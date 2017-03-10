@@ -15,6 +15,10 @@ class GameContainer extends React.Component {
     this.state = {people: peopleSeeds, correctPerson: randomPerson}
   }
 
+  onPersonDoubleClick(event) {
+
+  }
+
   onSubmit() {
     const key = document.getElementById('key-select').value;
     const value = document.getElementById('value-select').value;
@@ -40,7 +44,8 @@ class GameContainer extends React.Component {
         <QuestionInput
           onSubmit={this.onSubmit.bind(this)}
           people={this.state.people}/>
-        <Board people={this.state.people}/>
+        <Board people={this.state.people}
+          onPersonDoubleClick={this.onPersonDoubleClick.bind(this)}/>
       </div>
     )
   }
