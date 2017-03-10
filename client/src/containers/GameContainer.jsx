@@ -6,7 +6,13 @@ import Board from '../components/Board.jsx'
 class GameContainer extends React.Component {
   constructor() {
     super()
-    this.state = {people: PeopleSeeds()}
+
+    const peopleSeeds = PeopleSeeds();
+
+    const randomIndex = (Math.random() * (peopleSeeds.length - 1)).toFixed(0);
+    const randomPerson = peopleSeeds[randomIndex]
+
+    this.state = {people: peopleSeeds, correctPerson: randomPerson}
   }
 
   onSubmit() {
@@ -15,7 +21,7 @@ class GameContainer extends React.Component {
 
     const peopleArray = this.state.people
     const peopleToBeDeleted = peopleArray.filter((person, index, self) => {
-      if(person[key] === value){
+      if(person[key] !== value){
         return true
       }
     })
