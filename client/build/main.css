@@ -8,3 +8,7 @@ html, body {
 .person-image {
   height: 300px
 }
+
+.disabled {
+  filter: grayscale(20%) brightness(50%);
+}

@@ -15,7 +15,7 @@ const PeopleSeeds = function() {
       name: "Mettaton",
       species: "robot",
       hair: "black",
-      tall: "no",
+      tall: "yes",
       town: "hotlands",
       url: "http://2static.fjcdn.com/pictures/Undertale_70dbd6_5722021.jpg"
     }),

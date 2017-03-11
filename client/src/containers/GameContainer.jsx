@@ -38,7 +38,8 @@ class GameContainer extends React.Component {
 
     peopleToBeDeleted.forEach((person) => {
       const personIndex = peopleArray.indexOf(person)
-      peopleArray.splice(personIndex, 1)
+      person.disabled = true;
+      // peopleArray.splice(personIndex, 1)
     })
 
     this.setState({people: peopleArray})
