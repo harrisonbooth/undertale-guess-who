@@ -6,6 +6,15 @@ html, body {
   background-color: black;
 }
 
+select {
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 0px;
+  background-color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 300px
+}
+
 #question-input {
   margin-top: 20px
 }
@@ -40,6 +49,34 @@ html, body {
   margin-right: 10px;
 }
 
+.person-image:hover {
+  animation-name: wiggle;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
 .disabled {
   filter: grayscale(20%) brightness(50%);
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(2deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
