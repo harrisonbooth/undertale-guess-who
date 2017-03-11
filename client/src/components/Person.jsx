@@ -4,7 +4,7 @@ const Person = (props) => {
   if(props.disabled){
     return <img onDoubleClick={props.onPersonDoubleClick}
       data-person={JSON.stringify(props.person)}
-      className="person-image disabled"
+      className="disabled"
       src={props.person.url} />
   }
     return <img onDoubleClick={props.onPersonDoubleClick}

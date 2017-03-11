@@ -7,7 +7,6 @@ import WinScreen from '../components/WinScreen.jsx'
 class GameContainer extends React.Component {
   constructor() {
     super()
-
     const peopleSeeds = PeopleSeeds()
 
     const randomIndex = (Math.random() * (peopleSeeds.length - 1)).toFixed(0)
