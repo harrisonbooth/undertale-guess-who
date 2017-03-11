@@ -12,7 +12,7 @@ const Board = (props) => {
   })
 
   return (
-    <div>
+    <div id='board'>
       {personNodes}
     </div>
   )
