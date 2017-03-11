@@ -14,8 +14,8 @@ class QuestionInput extends React.Component {
   render() {
     const keySet = Object.keys(this.props.people[0])
     keySet.splice(keySet.length - 1, 1);
-    const keyNodes = keySet.map((key) => {
-      return <option value={key}>{key}</option>
+    const keyNodes = keySet.map((key, index) => {
+      return <option key={index} value={key}>{key}</option>
     })
 
     const currentKey = this.state.currentKey
