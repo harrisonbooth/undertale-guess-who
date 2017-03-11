@@ -13,8 +13,6 @@ class WinScreen extends React.Component{
     }
 
     let typedMessage = this.state.typedMessage
-    console.log(n);
-    console.log(this.state.winMessage[n]);
     typedMessage += this.state.winMessage[n]
     this.setState({typedMessage: typedMessage})
     n++;

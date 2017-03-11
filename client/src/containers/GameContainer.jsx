@@ -22,6 +22,7 @@ class GameContainer extends React.Component {
       this.setState({winner: true})
     } else {
       event.target.classList.add('disabled')
+      event.target.classList.remove('person-image')
     }
   }
 
