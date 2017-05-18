@@ -21,7 +21,7 @@ class WinScreen extends React.Component{
 
   componentDidMount() {
     if(this.state.typedMessage.length === 0){
-      var audio = new Audio('sanss.mp3');
+      var audio = new Audio('build/sanss.mp3');
       audio.play();
       this.typeLetter(0)
     }

@@ -18,7 +18,6 @@ class GameContainer extends React.Component {
   onPersonDoubleClick(event) {
     const personClicked = JSON.parse(event.target.dataset.person);
     if(personClicked.name === this.state.correctPerson.name){
-      console.log("winner")
       this.setState({winner: true})
     } else {
       event.target.classList.add('disabled')
