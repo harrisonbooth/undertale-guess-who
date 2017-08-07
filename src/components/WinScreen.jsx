@@ -4,7 +4,12 @@ class WinScreen extends React.Component{
   constructor() {
     super()
     const message = "* well done. you have won. refresh to play again..."
-    this.state = {currentCharacterIndex: 0, winMessage: message, typedMessage: ""}
+
+    this.state = {
+      currentCharacterIndex: 0,
+      winMessage: message,
+      typedMessage: ""
+    }
   }
 
   typeLetter(n) {
@@ -14,8 +19,10 @@ class WinScreen extends React.Component{
 
     let typedMessage = this.state.typedMessage
     typedMessage += this.state.winMessage[n]
+
     this.setState({typedMessage: typedMessage})
-    n++;
+    n++
+
     setTimeout(() => {this.typeLetter(n)}, 100)
   }
 
@@ -30,8 +37,13 @@ class WinScreen extends React.Component{
   render() {
     return (
       <div id="win-wrapper">
-        <img id="sans-face" src="http://2static4.fjcdn.com/thumbnails/comments/Wow18+chicks+at+your+place+souns+rad+_8882c92243d0c049cf4402662537d308.jpg" />
-        <p id="win-message">{this.state.typedMessage}</p>
+        <img 
+        id="sans-face" 
+        src="http://2static4.fjcdn.com/thumbnails/comments/Wow18+chicks+at+your+place+souns+rad+_8882c92243d0c049cf4402662537d308.jpg" />
+
+        <p id="win-message">
+          {this.state.typedMessage}
+        </p>
       </div>
     )
   }

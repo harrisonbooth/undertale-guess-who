@@ -19,7 +19,7 @@ class QuestionInput extends React.Component {
 
   handleValueSelect(event) {
     const newValue = event.target.value
-    this.setState({currentValue: newValue})
+    this.setState({ currentValue: newValue })
   }
 
   capitalise(string) {
@@ -28,42 +28,55 @@ class QuestionInput extends React.Component {
     return firstChar + restOfString
   }
 
+  getValueSet(key) {
+    const valueSet = this.props.people.map((person) => {
+      return person[key]
+    })
+
+    return [...new Set(valueSet)];
+  }
+
+  createSelectOptions(array, suffix = "") {
+    return array.map((item, index) => {
+      return(
+        <option key={index} value={item}>
+          {this.capitalise(item) + suffix}
+        </option>
+      )
+    })
+  }
+
   render() {
     const keySet = Object.keys(this.props.people[0])
-    keySet.splice(keySet.length - 1, 1);
-    const keyNodes = keySet.map((key, index) => {
-      return <option key={index} value={key}>{this.capitalise(key)}:</option>
-    })
+      .filter((key) => key !== 'url')
 
-    const currentKey = this.state.currentKey
+    const keyNodes = this.createSelectOptions(keySet, ":")
 
-    const valueSet = this.props.people.map((person) => {
-      return person[currentKey]
-    })
+    const valueSet = this.getValueSet(this.state.currentKey)
 
-    const valueSetUniq = [...new Set(valueSet)];
-
-    const valueNodes = valueSetUniq.map((value, index) => {
-      return <option key={index} value={value}>{this.capitalise(value)}?</option>
-    })
+    const valueNodes = this.createSelectOptions(valueSet, "?")
 
     return (
       <div id="question-input">
-        <select id="key-select" onChange={this.handleKeySelect.bind(this)}>
+        
+        <select id="key-select" 
+        onChange={this.handleKeySelect.bind(this)}>
           {keyNodes}
         </select>
-        <select id="value-select" onChange={this.handleValueSelect.bind(this)}>
+
+        <select 
+        id="value-select" 
+        onChange={this.handleValueSelect.bind(this)}>
           {valueNodes}
         </select>
-        <button
-        onClick={
-          () => {
-            this.props.onSubmit(this.state.currentKey, this.state.currentValue)
-            }
-          }
-        >
+
+        <button 
+        onClick={() => {
+          this.props.onSubmit(this.state.currentKey, this.state.currentValue)
+        }}>
           Submit
         </button>
+
       </div>
     )
   }

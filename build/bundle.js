@@ -9930,10 +9930,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Board = function Board(props) {
   var personNodes = props.people.map(function (person, index) {
     if (person.disabled) {
-      return _react2.default.createElement(_Person2.default, { key: index, disabled: 'true', onPersonDoubleClick: props.onPersonDoubleClick,
+      return _react2.default.createElement(_Person2.default, {
+        key: index,
+        disabled: 'true',
+        onPersonDoubleClick: props.onPersonDoubleClick,
         person: person });
     }
-    return _react2.default.createElement(_Person2.default, { key: index, onPersonDoubleClick: props.onPersonDoubleClick,
+    return _react2.default.createElement(_Person2.default, {
+      key: index,
+      onPersonDoubleClick: props.onPersonDoubleClick,
       person: person });
   });
 
@@ -9964,15 +9969,9 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Person = function Person(props) {
-  if (props.disabled) {
-    return _react2.default.createElement("img", { onDoubleClick: props.onPersonDoubleClick,
-      "data-person": JSON.stringify(props.person),
-      className: "disabled",
-      src: props.person.url });
-  }
-  return _react2.default.createElement("img", { onDoubleClick: props.onPersonDoubleClick,
-    "data-person": JSON.stringify(props.person),
-    className: "person-image",
+  return _react2.default.createElement('img', { onDoubleClick: props.onPersonDoubleClick,
+    'data-person': JSON.stringify(props.person),
+    className: props.disabled ? 'disabled' : 'person-image',
     src: props.person.url });
 };
 
@@ -10043,58 +10042,66 @@ var QuestionInput = function (_React$Component) {
       return firstChar + restOfString;
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "getValueSet",
+    value: function getValueSet(key) {
+      var valueSet = this.props.people.map(function (person) {
+        return person[key];
+      });
+
+      return [].concat(_toConsumableArray(new Set(valueSet)));
+    }
+  }, {
+    key: "createSelectOptions",
+    value: function createSelectOptions(array) {
       var _this2 = this;
 
-      var keySet = Object.keys(this.props.people[0]);
-      keySet.splice(keySet.length - 1, 1);
-      var keyNodes = keySet.map(function (key, index) {
+      var suffix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+
+      return array.map(function (item, index) {
         return _react2.default.createElement(
           "option",
-          { key: index, value: key },
-          _this2.capitalise(key),
-          ":"
+          { key: index, value: item },
+          _this2.capitalise(item) + suffix
         );
       });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
 
-      var currentKey = this.state.currentKey;
-
-      var valueSet = this.props.people.map(function (person) {
-        return person[currentKey];
+      var keySet = Object.keys(this.props.people[0]).filter(function (key) {
+        return key !== 'url';
       });
 
-      var valueSetUniq = [].concat(_toConsumableArray(new Set(valueSet)));
+      var keyNodes = this.createSelectOptions(keySet, ":");
 
-      var valueNodes = valueSetUniq.map(function (value, index) {
-        return _react2.default.createElement(
-          "option",
-          { key: index, value: value },
-          _this2.capitalise(value),
-          "?"
-        );
-      });
+      var valueSet = this.getValueSet(this.state.currentKey);
+
+      var valueNodes = this.createSelectOptions(valueSet, "?");
 
       return _react2.default.createElement(
         "div",
         { id: "question-input" },
         _react2.default.createElement(
           "select",
-          { id: "key-select", onChange: this.handleKeySelect.bind(this) },
+          { id: "key-select",
+            onChange: this.handleKeySelect.bind(this) },
           keyNodes
         ),
         _react2.default.createElement(
           "select",
-          { id: "value-select", onChange: this.handleValueSelect.bind(this) },
+          {
+            id: "value-select",
+            onChange: this.handleValueSelect.bind(this) },
           valueNodes
         ),
         _react2.default.createElement(
           "button",
           {
             onClick: function onClick() {
-              _this2.props.onSubmit(_this2.state.currentKey, _this2.state.currentValue);
-            }
-          },
+              _this3.props.onSubmit(_this3.state.currentKey, _this3.state.currentValue);
+            } },
           "Submit"
         )
       );
@@ -10140,7 +10147,12 @@ var WinScreen = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (WinScreen.__proto__ || Object.getPrototypeOf(WinScreen)).call(this));
 
     var message = "* well done. you have won. refresh to play again...";
-    _this.state = { currentCharacterIndex: 0, winMessage: message, typedMessage: "" };
+
+    _this.state = {
+      currentCharacterIndex: 0,
+      winMessage: message,
+      typedMessage: ""
+    };
     return _this;
   }
 
@@ -10155,8 +10167,10 @@ var WinScreen = function (_React$Component) {
 
       var typedMessage = this.state.typedMessage;
       typedMessage += this.state.winMessage[n];
+
       this.setState({ typedMessage: typedMessage });
       n++;
+
       setTimeout(function () {
         _this2.typeLetter(n);
       }, 100);
@@ -10176,7 +10190,9 @@ var WinScreen = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { id: "win-wrapper" },
-        _react2.default.createElement("img", { id: "sans-face", src: "http://2static4.fjcdn.com/thumbnails/comments/Wow18+chicks+at+your+place+souns+rad+_8882c92243d0c049cf4402662537d308.jpg" }),
+        _react2.default.createElement("img", {
+          id: "sans-face",
+          src: "http://2static4.fjcdn.com/thumbnails/comments/Wow18+chicks+at+your+place+souns+rad+_8882c92243d0c049cf4402662537d308.jpg" }),
         _react2.default.createElement(
           "p",
           { id: "win-message" },
