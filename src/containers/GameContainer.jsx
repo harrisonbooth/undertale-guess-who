@@ -25,21 +25,13 @@ class GameContainer extends React.Component {
     }
   }
 
-  filterByProperty(answer) {
-    const key = document.getElementById('key-select').value;
-    const value = document.getElementById('value-select').value;
-
+  filterByProperty(isQuestionCorrect, key, value) {
     const peopleArray = this.state.people
-    const peopleToBeDeleted = peopleArray.filter((person, index, self) => {
-      if(answer === false && person[key] === value){
-        return true
-      }
-      if(answer === true && person[key] !== value){
-        return true
-      }
+    const peopleToBeDisabled = peopleArray.filter((person, index, self) => {
+      return ( isQuestionCorrect !== (person[key] === value) )
     })
 
-    peopleToBeDeleted.forEach((person) => {
+    peopleToBeDisabled.forEach((person) => {
       const personIndex = peopleArray.indexOf(person)
       person.disabled = true;
     })
@@ -49,9 +41,9 @@ class GameContainer extends React.Component {
 
   onSubmit(key, value) {
     if(this.state.correctPerson[key] === value){
-      this.filterByProperty(true)
+      this.filterByProperty(true, key, value)
     } else {
-      this.filterByProperty(false)
+      this.filterByProperty(false, key, value)
     }
   }
 

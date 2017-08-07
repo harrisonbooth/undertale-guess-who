@@ -52,7 +52,7 @@ class QuestionInput extends React.Component {
         <select id="key-select" onChange={this.handleKeySelect.bind(this)}>
           {keyNodes}
         </select>
-        <select id="value-select">
+        <select id="value-select" onChange={this.handleValueSelect.bind(this)}>
           {valueNodes}
         </select>
         <button

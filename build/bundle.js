@@ -9826,21 +9826,13 @@ var GameContainer = function (_React$Component) {
     }
   }, {
     key: 'filterByProperty',
-    value: function filterByProperty(answer) {
-      var key = document.getElementById('key-select').value;
-      var value = document.getElementById('value-select').value;
-
+    value: function filterByProperty(isQuestionCorrect, key, value) {
       var peopleArray = this.state.people;
-      var peopleToBeDeleted = peopleArray.filter(function (person, index, self) {
-        if (answer === false && person[key] === value) {
-          return true;
-        }
-        if (answer === true && person[key] !== value) {
-          return true;
-        }
+      var peopleToBeDisabled = peopleArray.filter(function (person, index, self) {
+        return isQuestionCorrect !== (person[key] === value);
       });
 
-      peopleToBeDeleted.forEach(function (person) {
+      peopleToBeDisabled.forEach(function (person) {
         var personIndex = peopleArray.indexOf(person);
         person.disabled = true;
       });
@@ -9851,9 +9843,9 @@ var GameContainer = function (_React$Component) {
     key: 'onSubmit',
     value: function onSubmit(key, value) {
       if (this.state.correctPerson[key] === value) {
-        this.filterByProperty(true);
+        this.filterByProperty(true, key, value);
       } else {
-        this.filterByProperty(false);
+        this.filterByProperty(false, key, value);
       }
     }
   }, {
@@ -10093,7 +10085,7 @@ var QuestionInput = function (_React$Component) {
         ),
         _react2.default.createElement(
           "select",
-          { id: "value-select" },
+          { id: "value-select", onChange: this.handleValueSelect.bind(this) },
           valueNodes
         ),
         _react2.default.createElement(
