@@ -3,7 +3,7 @@ import Person from './Person.jsx'
 
 const Board = (props) => {
   const personNodes = props.people.map((person, index) => {
-    return(
+    return (
       <Person 
       key={index} 
       disabled={(person.disabled) ? true : false} 

@@ -32,7 +32,7 @@ class QuestionInput extends React.Component {
 
   createSelectOptions(array, suffix = "") {
     return array.map((item, index) => {
-      return(
+      return (
         <option key={index} value={item}>
           {_.capitalize(item) + suffix}
         </option>
