@@ -9929,15 +9929,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Board = function Board(props) {
   var personNodes = props.people.map(function (person, index) {
-    if (person.disabled) {
-      return _react2.default.createElement(_Person2.default, {
-        key: index,
-        disabled: 'true',
-        onPersonDoubleClick: props.onPersonDoubleClick,
-        person: person });
-    }
     return _react2.default.createElement(_Person2.default, {
       key: index,
+      disabled: person.disabled ? true : false,
       onPersonDoubleClick: props.onPersonDoubleClick,
       person: person });
   });
