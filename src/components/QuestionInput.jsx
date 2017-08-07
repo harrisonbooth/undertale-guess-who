@@ -23,12 +23,6 @@ class QuestionInput extends React.Component {
     this.setState({ currentValue: newValue })
   }
 
-  // capitalise(string) {
-  //   let firstChar = string.charAt(0).toUpperCase()
-  //   let restOfString = string.slice(1)
-  //   return firstChar + restOfString
-  // }
-
   getValueSet(key) {
     const valueSet = this.props.people.map((person) => {
       return person[key]

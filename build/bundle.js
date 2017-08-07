@@ -10036,13 +10036,6 @@ var QuestionInput = function (_React$Component) {
       var newValue = event.target.value;
       this.setState({ currentValue: newValue });
     }
-
-    // capitalise(string) {
-    //   let firstChar = string.charAt(0).toUpperCase()
-    //   let restOfString = string.slice(1)
-    //   return firstChar + restOfString
-    // }
-
   }, {
     key: 'getValueSet',
     value: function getValueSet(key) {
