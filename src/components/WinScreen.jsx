@@ -3,7 +3,7 @@ import React from 'react'
 class WinScreen extends React.Component{
   constructor() {
     super()
-    const message = "* well done. you have won. refresh to play again..."
+    const message = "* well done. you won.. click below to play again..."
 
     this.state = {
       currentCharacterIndex: 0,
@@ -38,12 +38,22 @@ class WinScreen extends React.Component{
     return (
       <div id="win-wrapper">
         <img 
-        id="sans-face" 
-        src="build/images/sans-head.jpg" />
+          id="sans-face" 
+          src="build/images/sans-head.jpg" 
+        />
 
         <p id="win-message">
           {this.state.typedMessage}
         </p>
+
+        <div id="reset-button-wrapper">
+          <button 
+            id="reset-button"
+            onClick={this.props.onReset}
+          >
+            Restart
+          </button>
+        </div>
       </div>
     )
   }

@@ -55,6 +55,11 @@ button {
   font-size: 2em
 }
 
+#reset-button-wrapper {
+  display: block;
+  text-align: center;
+}
+
 .person-image {
   height: 300px;
   border-radius: 9px;

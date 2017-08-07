@@ -9806,14 +9806,21 @@ var GameContainer = function (_React$Component) {
 
     var peopleSeeds = (0, _PeopleSeeds2.default)();
 
-    var randomIndex = (Math.random() * (peopleSeeds.length - 1)).toFixed(0);
-    var randomPerson = peopleSeeds[randomIndex];
-
-    _this.state = { people: peopleSeeds, correctPerson: randomPerson, winner: false };
+    _this.state = {
+      people: peopleSeeds,
+      correctPerson: _this.getRandomPerson(peopleSeeds),
+      winner: false
+    };
     return _this;
   }
 
   _createClass(GameContainer, [{
+    key: 'getRandomPerson',
+    value: function getRandomPerson(people) {
+      var randomIndex = (Math.random() * (people.length - 1)).toFixed(0);
+      return people[randomIndex];
+    }
+  }, {
     key: 'onPersonDoubleClick',
     value: function onPersonDoubleClick(event) {
       var personClicked = JSON.parse(event.target.dataset.person);
@@ -9849,11 +9856,23 @@ var GameContainer = function (_React$Component) {
       }
     }
   }, {
+    key: 'resetGame',
+    value: function resetGame() {
+      var peopleSeeds = (0, _PeopleSeeds2.default)();
+      this.setState({
+        people: peopleSeeds,
+        correctPerson: this.getRandomPerson(peopleSeeds),
+        winner: false
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
 
       if (this.state.winner) {
-        return _react2.default.createElement(_WinScreen2.default, null);
+        return _react2.default.createElement(_WinScreen2.default, {
+          onReset: this.resetGame.bind(this)
+        });
       }
 
       return _react2.default.createElement(
@@ -9861,9 +9880,12 @@ var GameContainer = function (_React$Component) {
         { id: 'game-container' },
         _react2.default.createElement(_QuestionInput2.default, {
           onSubmit: this.onSubmit.bind(this),
-          people: this.state.people }),
-        _react2.default.createElement(_Board2.default, { people: this.state.people,
-          onPersonDoubleClick: this.onPersonDoubleClick.bind(this) })
+          people: this.state.people
+        }),
+        _react2.default.createElement(_Board2.default, {
+          people: this.state.people,
+          onPersonDoubleClick: this.onPersonDoubleClick.bind(this)
+        })
       );
     }
   }]);
@@ -9933,7 +9955,8 @@ var Board = function Board(props) {
       key: index,
       disabled: person.disabled ? true : false,
       onPersonDoubleClick: props.onPersonDoubleClick,
-      person: person });
+      person: person
+    });
   });
 
   return _react2.default.createElement(
@@ -9963,10 +9986,12 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Person = function Person(props) {
-  return _react2.default.createElement('img', { onDoubleClick: props.onPersonDoubleClick,
+  return _react2.default.createElement('img', {
+    onDoubleClick: props.onPersonDoubleClick,
     'data-person': JSON.stringify(props.person),
     className: props.disabled ? 'disabled' : 'person-image',
-    src: props.person.url });
+    src: props.person.url
+  });
 };
 
 exports.default = Person;
@@ -10071,15 +10096,18 @@ var QuestionInput = function (_React$Component) {
         { id: 'question-input' },
         _react2.default.createElement(
           'select',
-          { id: 'key-select',
-            onChange: this.handleKeySelect.bind(this) },
+          {
+            id: 'key-select',
+            onChange: this.handleKeySelect.bind(this)
+          },
           keyNodes
         ),
         _react2.default.createElement(
           'select',
           {
             id: 'value-select',
-            onChange: this.handleValueSelect.bind(this) },
+            onChange: this.handleValueSelect.bind(this)
+          },
           valueNodes
         ),
         _react2.default.createElement(
@@ -10087,7 +10115,8 @@ var QuestionInput = function (_React$Component) {
           {
             onClick: function onClick() {
               _this2.props.onSubmit(_this2.state.currentKey, _this2.state.currentValue);
-            } },
+            }
+          },
           'Submit'
         )
       );
@@ -10132,7 +10161,7 @@ var WinScreen = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (WinScreen.__proto__ || Object.getPrototypeOf(WinScreen)).call(this));
 
-    var message = "* well done. you have won. refresh to play again...";
+    var message = "* well done. you won.. click below to play again...";
 
     _this.state = {
       currentCharacterIndex: 0,
@@ -10178,11 +10207,24 @@ var WinScreen = function (_React$Component) {
         { id: "win-wrapper" },
         _react2.default.createElement("img", {
           id: "sans-face",
-          src: "build/images/sans-head.jpg" }),
+          src: "build/images/sans-head.jpg"
+        }),
         _react2.default.createElement(
           "p",
           { id: "win-message" },
           this.state.typedMessage
+        ),
+        _react2.default.createElement(
+          "div",
+          { id: "reset-button-wrapper" },
+          _react2.default.createElement(
+            "button",
+            {
+              id: "reset-button",
+              onClick: this.props.onReset
+            },
+            "Restart"
+          )
         )
       );
     }

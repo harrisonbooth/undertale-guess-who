@@ -5,10 +5,11 @@ const Board = (props) => {
   const personNodes = props.people.map((person, index) => {
     return (
       <Person 
-      key={index} 
-      disabled={(person.disabled) ? true : false} 
-      onPersonDoubleClick={props.onPersonDoubleClick}
-      person={person} />
+        key={index} 
+        disabled={(person.disabled) ? true : false} 
+        onPersonDoubleClick={props.onPersonDoubleClick}
+        person={person}
+      />
     ) 
   })
 

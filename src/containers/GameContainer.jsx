@@ -9,10 +9,16 @@ class GameContainer extends React.Component {
     super()
     const peopleSeeds = PeopleSeeds()
 
-    const randomIndex = (Math.random() * (peopleSeeds.length - 1)).toFixed(0)
-    const randomPerson = peopleSeeds[randomIndex]
+    this.state = {
+      people: peopleSeeds,
+      correctPerson: this.getRandomPerson(peopleSeeds),
+      winner: false
+    }
+  }
 
-    this.state = {people: peopleSeeds, correctPerson: randomPerson, winner: false}
+  getRandomPerson(people) {
+    const randomIndex = (Math.random() * (people.length - 1)).toFixed(0)
+    return people[randomIndex]
   }
 
   onPersonDoubleClick(event) {
@@ -47,11 +53,22 @@ class GameContainer extends React.Component {
     }
   }
 
+  resetGame() {
+    const peopleSeeds = PeopleSeeds()
+    this.setState({
+      people: peopleSeeds,
+      correctPerson: this.getRandomPerson(peopleSeeds),
+      winner: false
+    })
+  }
+
   render() {
 
     if(this.state.winner){
       return (
-        <WinScreen />
+        <WinScreen 
+          onReset={this.resetGame.bind(this)} 
+        />
       )
     }
 
@@ -59,9 +76,12 @@ class GameContainer extends React.Component {
       <div id="game-container">
         <QuestionInput
           onSubmit={this.onSubmit.bind(this)}
-          people={this.state.people}/>
-        <Board people={this.state.people}
-          onPersonDoubleClick={this.onPersonDoubleClick.bind(this)}/>
+          people={this.state.people}
+        />
+        <Board 
+          people={this.state.people}
+          onPersonDoubleClick={this.onPersonDoubleClick.bind(this)}
+        />
       </div>
     )
   }
