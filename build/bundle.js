@@ -10036,13 +10036,13 @@ var QuestionInput = function (_React$Component) {
       var newValue = event.target.value;
       this.setState({ currentValue: newValue });
     }
-  }, {
-    key: 'capitalise',
-    value: function capitalise(string) {
-      var firstChar = string.charAt(0).toUpperCase();
-      var restOfString = string.slice(1);
-      return firstChar + restOfString;
-    }
+
+    // capitalise(string) {
+    //   let firstChar = string.charAt(0).toUpperCase()
+    //   let restOfString = string.slice(1)
+    //   return firstChar + restOfString
+    // }
+
   }, {
     key: 'getValueSet',
     value: function getValueSet(key) {
@@ -10055,22 +10055,20 @@ var QuestionInput = function (_React$Component) {
   }, {
     key: 'createSelectOptions',
     value: function createSelectOptions(array) {
-      var _this2 = this;
-
       var suffix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
 
       return array.map(function (item, index) {
         return _react2.default.createElement(
           'option',
           { key: index, value: item },
-          _this2.capitalise(item) + suffix
+          _lodash2.default.capitalize(item) + suffix
         );
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var keySet = Object.keys(this.props.people[0]).filter(function (key) {
         return key !== 'url';
@@ -10102,7 +10100,7 @@ var QuestionInput = function (_React$Component) {
           'button',
           {
             onClick: function onClick() {
-              _this3.props.onSubmit(_this3.state.currentKey, _this3.state.currentValue);
+              _this2.props.onSubmit(_this2.state.currentKey, _this2.state.currentValue);
             } },
           'Submit'
         )
