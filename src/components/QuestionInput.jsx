@@ -27,7 +27,6 @@ class QuestionInput extends React.Component {
     const valueSet = this.props.people.map((person) => {
       return person[key]
     })
-
     return _.uniq(valueSet)
   }
 

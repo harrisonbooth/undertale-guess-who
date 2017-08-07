@@ -10042,7 +10042,6 @@ var QuestionInput = function (_React$Component) {
       var valueSet = this.props.people.map(function (person) {
         return person[key];
       });
-
       return _lodash2.default.uniq(valueSet);
     }
   }, {
