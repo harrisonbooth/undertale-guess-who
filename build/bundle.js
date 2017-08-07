@@ -10217,77 +10217,77 @@ var PeopleSeeds = function PeopleSeeds() {
     hair: "none",
     tall: "no",
     town: "snowdin",
-    url: "./build/images/sans.jpg"
+    url: "build/images/sans.jpg"
   }), new _Person2.default({
     name: "Mettaton",
     species: "robot",
     hair: "black",
     tall: "yes",
     town: "hotlands",
-    url: "./build/images/mettaton.jpg"
+    url: "build/images/mettaton.jpg"
   }), new _Person2.default({
     name: "Asgore",
     species: "goat",
     hair: "blonde",
     tall: "yes",
     town: "new home",
-    url: "./build/images/asgore.jpg"
+    url: "build/images/asgore.jpg"
   }), new _Person2.default({
     name: "Toriel",
     species: "goat",
     hair: "white",
     tall: "yes",
     town: "ruins",
-    url: "./build/images/toriel.jpg"
+    url: "build/images/toriel.jpg"
   }), new _Person2.default({
     name: "Papyrus",
     species: "skeleton",
     hair: "none",
     tall: "yes",
     town: "snowdin",
-    url: "./build/images/papyrus.jpg"
+    url: "build/images/papyrus.jpg"
   }), new _Person2.default({
     name: "Undyne",
     species: "fish",
     hair: "red",
     tall: "yes",
     town: "waterfall",
-    url: "./build/images/undyne.jpg"
+    url: "build/images/undyne.jpg"
   }), new _Person2.default({
     name: "Chara",
     species: "human",
     hair: "brown",
     tall: "no",
     town: "overworld",
-    url: "./build/images/chara.jpg"
+    url: "build/images/chara.jpg"
   }), new _Person2.default({
     name: "Frisk",
     species: "human",
     hair: "light-brown",
     tall: "no",
     town: "overworld",
-    url: "./build/images/frisk.jpg"
+    url: "build/images/frisk.jpg"
   }), new _Person2.default({
     name: "Asriel",
     species: "goat",
     hair: "white",
     tall: "yes",
     town: "new home",
-    url: "./build/images/asriel.jpg"
+    url: "build/images/asriel.jpg"
   }), new _Person2.default({
     name: "Doggo",
     species: "dog",
     hair: "white",
     tall: "no",
     town: "snowdin",
-    url: "./build/images/two-of-swords.jpg"
+    url: "build/images/two-of-swords.jpg"
   }), new _Person2.default({
     name: "Greater Dog",
     species: "dog",
     hair: "white",
     tall: "yes",
     town: "snowdin",
-    url: "./build/images/greater-dog.jpg"
+    url: "build/images/greater-dog.jpg"
   })];
   return people;
 };

@@ -8,7 +8,7 @@ const PeopleSeeds = function() {
       hair: "none",
       tall: "no",
       town: "snowdin",
-      url: "./build/images/sans.jpg"
+      url: "build/images/sans.jpg"
     }),
 
     new Person({
@@ -17,7 +17,7 @@ const PeopleSeeds = function() {
       hair: "black",
       tall: "yes",
       town: "hotlands",
-      url: "./build/images/mettaton.jpg"
+      url: "build/images/mettaton.jpg"
     }),
 
     new Person({
@@ -26,7 +26,7 @@ const PeopleSeeds = function() {
       hair: "blonde",
       tall: "yes",
       town: "new home",
-      url: "./build/images/asgore.jpg"
+      url: "build/images/asgore.jpg"
     }),
 
     new Person({
@@ -35,7 +35,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "yes",
       town: "ruins",
-      url: "./build/images/toriel.jpg"
+      url: "build/images/toriel.jpg"
     }),
 
     new Person({
@@ -44,7 +44,7 @@ const PeopleSeeds = function() {
       hair: "none",
       tall: "yes",
       town: "snowdin",
-      url: "./build/images/papyrus.jpg"
+      url: "build/images/papyrus.jpg"
     }),
 
     new Person({
@@ -53,7 +53,7 @@ const PeopleSeeds = function() {
       hair: "red",
       tall: "yes",
       town: "waterfall",
-      url: "./build/images/undyne.jpg"
+      url: "build/images/undyne.jpg"
     }),
 
     new Person({
@@ -62,7 +62,7 @@ const PeopleSeeds = function() {
       hair: "brown",
       tall: "no",
       town: "overworld",
-      url: "./build/images/chara.jpg"
+      url: "build/images/chara.jpg"
     }),
 
     new Person({
@@ -71,7 +71,7 @@ const PeopleSeeds = function() {
       hair: "light-brown",
       tall: "no",
       town: "overworld",
-      url: "./build/images/frisk.jpg"
+      url: "build/images/frisk.jpg"
     }),
 
     new Person({
@@ -80,7 +80,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "yes",
       town: "new home",
-      url: "./build/images/asriel.jpg"
+      url: "build/images/asriel.jpg"
     }),
 
     new Person({
@@ -89,7 +89,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "no",
       town: "snowdin",
-      url: "./build/images/two-of-swords.jpg"
+      url: "build/images/two-of-swords.jpg"
     }),
 
     new Person({
@@ -98,7 +98,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "yes",
       town: "snowdin",
-      url: "./build/images/greater-dog.jpg"
+      url: "build/images/greater-dog.jpg"
     }),
   ]
   return people;
