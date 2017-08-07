@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 
 class QuestionInput extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class QuestionInput extends React.Component {
       return person[key]
     })
 
-    return [...new Set(valueSet)];
+    return _.uniq(valueSet)
   }
 
   createSelectOptions(array, suffix = "") {
