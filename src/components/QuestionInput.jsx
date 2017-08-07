@@ -41,7 +41,9 @@ class QuestionInput extends React.Component {
         <select id="key-select" onChange={this.handleKeySelect.bind(this)}>
           {keyNodes}
         </select>
-        <select id="value-select">{valueNodes}</select>
+        <select id="value-select">
+          {valueNodes}
+        </select>
         <button onClick={this.props.onSubmit}>Submit</button>
       </div>
     )
