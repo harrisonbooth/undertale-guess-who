@@ -8,7 +8,7 @@ const PeopleSeeds = function() {
       hair: "none",
       tall: "no",
       town: "snowdin",
-      url: "http://2static.fjcdn.com/pictures/Undertale_bd164e_5722021.jpg"
+      url: "./build/images/sans.jpg"
     }),
 
     new Person({
@@ -17,7 +17,7 @@ const PeopleSeeds = function() {
       hair: "black",
       tall: "yes",
       town: "hotlands",
-      url: "http://2static.fjcdn.com/pictures/Undertale_70dbd6_5722021.jpg"
+      url: "./build/images/mettaton.jpg"
     }),
 
     new Person({
@@ -26,7 +26,7 @@ const PeopleSeeds = function() {
       hair: "blonde",
       tall: "yes",
       town: "new home",
-      url: "http://2static.fjcdn.com/pictures/Undertale_36019c_5722021.jpg"
+      url: "./build/images/asgore.jpg"
     }),
 
     new Person({
@@ -35,7 +35,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "yes",
       town: "ruins",
-      url: "http://2static.fjcdn.com/pictures/Undertale_faed25_5722021.jpg"
+      url: "./build/images/toriel.jpg"
     }),
 
     new Person({
@@ -44,7 +44,7 @@ const PeopleSeeds = function() {
       hair: "none",
       tall: "yes",
       town: "snowdin",
-      url: "http://2static.fjcdn.com/pictures/Undertale_dfccc6_5722021.jpg"
+      url: "./build/images/papyrus.jpg"
     }),
 
     new Person({
@@ -53,7 +53,7 @@ const PeopleSeeds = function() {
       hair: "red",
       tall: "yes",
       town: "waterfall",
-      url: "http://2static.fjcdn.com/pictures/Undertale_0ef151_5722021.jpg"
+      url: "./build/images/undyne.jpg"
     }),
 
     new Person({
@@ -62,7 +62,7 @@ const PeopleSeeds = function() {
       hair: "brown",
       tall: "no",
       town: "overworld",
-      url: "http://2static.fjcdn.com/pictures/Undertale_ea6022_5722021.jpg"
+      url: "./build/images/chara.jpg"
     }),
 
     new Person({
@@ -71,7 +71,7 @@ const PeopleSeeds = function() {
       hair: "light-brown",
       tall: "no",
       town: "overworld",
-      url: "https://s-media-cache-ak0.pinimg.com/736x/00/8f/18/008f18e1ee31630d7bfba9d6e592fa1d.jpg"
+      url: "./build/images/frisk.jpg"
     }),
 
     new Person({
@@ -80,7 +80,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "yes",
       town: "new home",
-      url: "http://2static.fjcdn.com/pictures/Undertale_ef9f57_5722021.jpg"
+      url: "./build/images/asriel.jpg"
     }),
 
     new Person({
@@ -89,7 +89,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "no",
       town: "snowdin",
-      url: "http://2static.fjcdn.com/pictures/Undertale_8548ea_5722021.jpg"
+      url: "./build/images/two-of-swords.jpg"
     }),
 
     new Person({
@@ -98,7 +98,7 @@ const PeopleSeeds = function() {
       hair: "white",
       tall: "yes",
       town: "snowdin",
-      url: "http://2static.fjcdn.com/pictures/Undertale_597f01_5722021.jpg"
+      url: "./build/images/greater-dog.jpg"
     }),
   ]
   return people;
