@@ -39,7 +39,7 @@ class WinScreen extends React.Component{
       <div id="win-wrapper">
         <img 
         id="sans-face" 
-        src="http://2static4.fjcdn.com/thumbnails/comments/Wow18+chicks+at+your+place+souns+rad+_8882c92243d0c049cf4402662537d308.jpg" />
+        src="build/images/sans-head.jpg" />
 
         <p id="win-message">
           {this.state.typedMessage}
