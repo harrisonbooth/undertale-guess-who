@@ -9843,17 +9843,13 @@ var GameContainer = function (_React$Component) {
       peopleToBeDeleted.forEach(function (person) {
         var personIndex = peopleArray.indexOf(person);
         person.disabled = true;
-        // peopleArray.splice(personIndex, 1)
       });
 
       this.setState({ people: peopleArray });
     }
   }, {
     key: 'onSubmit',
-    value: function onSubmit() {
-      var key = document.getElementById('key-select').value;
-      var value = document.getElementById('value-select').value;
-
+    value: function onSubmit(key, value) {
       if (this.state.correctPerson[key] === value) {
         this.filterByProperty(true);
       } else {
@@ -10025,7 +10021,10 @@ var QuestionInput = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (QuestionInput.__proto__ || Object.getPrototypeOf(QuestionInput)).call(this, props));
 
-    _this.state = { currentKey: "name" };
+    _this.state = {
+      currentKey: "name",
+      currentValue: _this.props.people[0].name
+    };
     return _this;
   }
 
@@ -10033,7 +10032,16 @@ var QuestionInput = function (_React$Component) {
     key: "handleKeySelect",
     value: function handleKeySelect(event) {
       var newKey = event.target.value;
-      this.setState({ currentKey: newKey });
+      this.setState({
+        currentKey: newKey,
+        currentValue: this.props.people[0][newKey]
+      });
+    }
+  }, {
+    key: "handleValueSelect",
+    value: function handleValueSelect(event) {
+      var newValue = event.target.value;
+      this.setState({ currentValue: newValue });
     }
   }, {
     key: "capitalise",
@@ -10090,7 +10098,11 @@ var QuestionInput = function (_React$Component) {
         ),
         _react2.default.createElement(
           "button",
-          { onClick: this.props.onSubmit },
+          {
+            onClick: function onClick() {
+              _this2.props.onSubmit(_this2.state.currentKey, _this2.state.currentValue);
+            }
+          },
           "Submit"
         )
       );

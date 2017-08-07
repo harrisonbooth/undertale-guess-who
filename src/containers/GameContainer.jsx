@@ -42,16 +42,12 @@ class GameContainer extends React.Component {
     peopleToBeDeleted.forEach((person) => {
       const personIndex = peopleArray.indexOf(person)
       person.disabled = true;
-      // peopleArray.splice(personIndex, 1)
     })
 
     this.setState({people: peopleArray})
   }
 
-  onSubmit() {
-    const key = document.getElementById('key-select').value;
-    const value = document.getElementById('value-select').value;
-
+  onSubmit(key, value) {
     if(this.state.correctPerson[key] === value){
       this.filterByProperty(true)
     } else {

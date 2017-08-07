@@ -3,12 +3,23 @@ import React from 'react'
 class QuestionInput extends React.Component {
   constructor(props) {
     super(props)
-    this.state = ({currentKey: "name"})
+    this.state = ({
+      currentKey: "name",
+      currentValue: this.props.people[0].name
+    })
   }
 
   handleKeySelect(event) {
     const newKey = event.target.value
-    this.setState({currentKey: newKey})
+    this.setState({
+      currentKey: newKey,
+      currentValue: this.props.people[0][newKey]
+    })
+  }
+
+  handleValueSelect(event) {
+    const newValue = event.target.value
+    this.setState({currentValue: newValue})
   }
 
   capitalise(string) {
@@ -44,7 +55,15 @@ class QuestionInput extends React.Component {
         <select id="value-select">
           {valueNodes}
         </select>
-        <button onClick={this.props.onSubmit}>Submit</button>
+        <button
+        onClick={
+          () => {
+            this.props.onSubmit(this.state.currentKey, this.state.currentValue)
+            }
+          }
+        >
+          Submit
+        </button>
       </div>
     )
   }
