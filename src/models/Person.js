@@ -9,8 +9,7 @@ class Person {
   }
 
   question(key, value) {
-    if(this[key] === value) return true
-    return false
+    return (this[key] === value);
   }
 }
 
