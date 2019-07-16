@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash'
 
 class QuestionInput extends React.Component {
   constructor(props) {
@@ -24,20 +23,14 @@ class QuestionInput extends React.Component {
   }
 
   getValueSet(key) {
-    const valueSet = this.props.people.map((person) => {
-      return person[key]
-    })
-    return _.uniq(valueSet)
+    return this.props.people
+      .map(person => person[key])
+      .filter((person, index, array) => array.indexOf(person) === index);
   }
 
   createSelectOptions(array, suffix = "") {
-    return array.map((item, index) => {
-      return (
-        <option key={index} value={item}>
-          {_.capitalize(item) + suffix}
-        </option>
-      )
-    })
+    return array.map((item, index) =>
+      <option key={index} value={item}>{item.charAt(0).toUpperCase() + item.slice(1) + suffix}</option>)
   }
 
   render() {
@@ -52,22 +45,22 @@ class QuestionInput extends React.Component {
 
     return (
       <div id="question-input">
-        
-        <select 
-          id="key-select" 
+
+        <select
+          id="key-select"
           onChange={this.handleKeySelect.bind(this)}
         >
           {keyNodes}
         </select>
 
-        <select 
-          id="value-select" 
+        <select
+          id="value-select"
           onChange={this.handleValueSelect.bind(this)}
         >
           {valueNodes}
         </select>
 
-        <button 
+        <button
           onClick={() => {
             this.props.onSubmit(this.state.currentKey, this.state.currentValue)
           }}
