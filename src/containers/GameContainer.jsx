@@ -23,8 +23,8 @@ class GameContainer extends React.Component {
 
   onPersonDoubleClick(event) {
     const personClicked = JSON.parse(event.target.dataset.person);
-    if(personClicked.name === this.state.correctPerson.name){
-      this.setState({winner: true})
+    if (personClicked.name === this.state.correctPerson.name) {
+      this.setState({ winner: true })
     } else {
       event.target.classList.add('disabled')
       event.target.classList.remove('person-image')
@@ -33,24 +33,17 @@ class GameContainer extends React.Component {
 
   filterByProperty(isQuestionCorrect, key, value) {
     const peopleArray = this.state.people
-    const peopleToBeDisabled = peopleArray.filter((person, index, self) => {
-      return ( isQuestionCorrect !== (person[key] === value) )
-    })
+    const peopleToBeDisabled = peopleArray
+      .filter((person, index, self) => (isQuestionCorrect !== (person[key] === value)))
 
-    peopleToBeDisabled.forEach((person) => {
-      const personIndex = peopleArray.indexOf(person)
-      person.disabled = true;
-    })
+    peopleToBeDisabled.forEach(person => person.disabled = true)
 
-    this.setState({people: peopleArray})
+    this.setState({ people: peopleArray })
   }
 
   onSubmit(key, value) {
-    if(this.state.correctPerson[key] === value){
-      this.filterByProperty(true, key, value)
-    } else {
-      this.filterByProperty(false, key, value)
-    }
+    (this.state.correctPerson[key] === value) ?
+      this.filterByProperty(true, key, value) : this.filterByProperty(false, key, value)
   }
 
   resetGame() {
@@ -63,27 +56,23 @@ class GameContainer extends React.Component {
   }
 
   render() {
-
-    if(this.state.winner){
-      return (
-        <WinScreen 
-          onReset={this.resetGame.bind(this)} 
+    return (this.state.winner) ?
+      (
+        <WinScreen
+          onReset={this.resetGame.bind(this)}
         />
+      ) : (
+        <div id="game-container">
+          <QuestionInput
+            onSubmit={this.onSubmit.bind(this)}
+            people={this.state.people}
+          />
+          <Board
+            people={this.state.people}
+            onPersonDoubleClick={this.onPersonDoubleClick.bind(this)}
+          />
+        </div>
       )
-    }
-
-    return (
-      <div id="game-container">
-        <QuestionInput
-          onSubmit={this.onSubmit.bind(this)}
-          people={this.state.people}
-        />
-        <Board 
-          people={this.state.people}
-          onPersonDoubleClick={this.onPersonDoubleClick.bind(this)}
-        />
-      </div>
-    )
   }
 }
 
