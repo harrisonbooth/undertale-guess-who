@@ -34,7 +34,7 @@ class QuestionInput extends React.Component {
   }
 
   render() {
-    const keySet = Object.keys(this.props.people[0]).filter(key => key !== 'url')
+    const keySet = Object.keys(this.props.people[0]).filter(key => key !== 'url' && key !== 'disabled')
     const keyNodes = this.createSelectOptions(keySet, ":")
     const valueSet = this.getValueSet(this.state.currentKey)
     const valueNodes = this.createSelectOptions(valueSet, "?")
