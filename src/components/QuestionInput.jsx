@@ -25,7 +25,7 @@ class QuestionInput extends React.Component {
   getValueSet(key) {
     return this.props.people
       .map(person => person[key])
-      .filter((person, index, array) => array.indexOf(person) === index);
+      .filter((person, index, array) => array.indexOf(person) === index)
   }
 
   createSelectOptions(array, suffix = "") {
@@ -34,32 +34,25 @@ class QuestionInput extends React.Component {
   }
 
   render() {
-    const keySet = Object.keys(this.props.people[0])
-      .filter((key) => key !== 'url')
-
+    const keySet = Object.keys(this.props.people[0]).filter(key => key !== 'url')
     const keyNodes = this.createSelectOptions(keySet, ":")
-
     const valueSet = this.getValueSet(this.state.currentKey)
-
     const valueNodes = this.createSelectOptions(valueSet, "?")
 
     return (
       <div id="question-input">
-
         <select
           id="key-select"
           onChange={this.handleKeySelect.bind(this)}
         >
           {keyNodes}
         </select>
-
         <select
           id="value-select"
           onChange={this.handleValueSelect.bind(this)}
         >
           {valueNodes}
         </select>
-
         <button
           onClick={() => {
             this.props.onSubmit(this.state.currentKey, this.state.currentValue)
